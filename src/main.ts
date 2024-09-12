@@ -1,4 +1,6 @@
-import {  createCommand } from "commander";
+import process from "node:process";
+process.env.DATABASE_URL = `${process.env.HOME}/.cofflet-local-sync.db`;
+import { createCommand } from "commander";
 
 const program = createCommand();
 /**
@@ -6,6 +8,5 @@ const program = createCommand();
  */
 program.name(`cofflet-local-sync`);
 program.description(`sync cloudflare DNS with SSH config & Host file`);
-
 
 program.parse(process.argv);
